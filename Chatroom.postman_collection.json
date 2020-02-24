@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "6de340bc-b28a-4ba8-a081-19fe7c07cf0e",
+		"name": "Chatroom",
+		"description": "# Introduction\nChatroom Service\n\nNote: For all the requests except 'login' and 'register', please add the token received from the login response to all the other requests as 'Authorization : Bearer Token' header to authenticate the user in the backend. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterUser Testuser1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"Test1\",\n\t\"lastName\" : \"Test1\",\n\t\"emailId\" : \"testuser1@test.com\",\n\t\"username\" : \"testuser1\",\n\t\"password\" : \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"register"
+					]
+				},
+				"description": "This request will register the user if the email and username does not already exist."
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterUser Testuser2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"Test2\",\n\t\"lastName\" : \"Test2\",\n\t\"emailId\" : \"testuser2@test.com\",\n\t\"username\" : \"testuser2\",\n\t\"password\" : \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"register"
+					]
+				},
+				"description": "This request will register the user if the email and username does not already exist."
+			},
+			"response": []
+		},
+		{
+			"name": "login testuser1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"testuser1\",\n\t\"password\" : \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"login"
+					]
+				},
+				"description": "Login to the application using the username and password user is registered with. "
+			},
+			"response": []
+		},
+		{
+			"name": "login testuser2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"testuser2\",\n\t\"password\" : \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login Incorrect password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"testuser1\",\n\t\"password\" : \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chatrooms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1MjEzNjYsImlhdCI6MTU4MjUwMzM2Nn0.1D7qSj29u9HFsU3A1dk9Lcy2JcXvRLvDvG--voWLtW_MZWbYSMqFfwZzW9vlCxinaPWHqgaA0ckeYDN8l1KLkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"rooms"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "Add chatroom",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1MTc3MjksImlhdCI6MTU4MjQ5OTcyOX0.g2gepGvbiB5XTxezrqMTS102hVjSZRS_HtxuviQRfHiwp8dadWbgE7QlLHynWoSO2aHN3hXsx7bxoByFbe3odA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\" : \"Test Chatroom 1\",\n\t\"description\" : \"testing 1...\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"rooms"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "Add chatroom 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1MTc3MjksImlhdCI6MTU4MjQ5OTcyOX0.g2gepGvbiB5XTxezrqMTS102hVjSZRS_HtxuviQRfHiwp8dadWbgE7QlLHynWoSO2aHN3hXsx7bxoByFbe3odA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\" : \"Test Chatroom 2\",\n\t\"description\" : \"testing 2...\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"rooms"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "post messages to chatroom1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1MTc3MjksImlhdCI6MTU4MjQ5OTcyOX0.g2gepGvbiB5XTxezrqMTS102hVjSZRS_HtxuviQRfHiwp8dadWbgE7QlLHynWoSO2aHN3hXsx7bxoByFbe3odA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"Hey there! This is my first message to chatroom1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/room/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"room",
+						"1",
+						"messages"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "post messages to chatroom2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1MTc3MjksImlhdCI6MTU4MjQ5OTcyOX0.g2gepGvbiB5XTxezrqMTS102hVjSZRS_HtxuviQRfHiwp8dadWbgE7QlLHynWoSO2aHN3hXsx7bxoByFbe3odA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"hello chatroom 2!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/room/2/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"room",
+						"2",
+						"messages"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "get messages from chatroom1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1NTA3MDcsImlhdCI6MTU4MjQ0MjcwN30.qFWfQBfNje5QnhYtzcIkPQC3h7AmVnMwlchwmNWrfVpbbE7N0D8RoJ3047eSlRZ-jLCWmG9UzUJhkaMpHiwvSg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/room/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"room",
+						"1",
+						"messages"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "send direct message to a user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1Mjc3NDYsImlhdCI6MTU4MjUwOTc0Nn0.1p-Ia0QPePYPWlMHpWq30qhKcTZLPQ45ahmKEbeXWolFSW-zapB2qiwHEFhOU4Q3woZSkSdiQ5GvIAX3xREi2g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"Hey there! This is a direct message from user 1 to user2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/testuser2/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"testuser2",
+						"messages"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		},
+		{
+			"name": "get direct messages received",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjMiLCJleHAiOjE1ODI1Mjc4MjgsImlhdCI6MTU4MjUwOTgyOH0.oPv0czlrzu69A33p7RlQUmjZYJr33ZcJFytDUnbLNXiSoW5po8GqngyEaeDv3J5veE1dWEQk4sQEp416ddY-wg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"messages"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header.\n\nThe messages received by the user authenticated will be displayed here."
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJleHAiOjE1ODI1MjYzNDAsImlhdCI6MTU4MjUwODM0MH0.a9te4BjkNMt7DAIOIr_Kg9_COiKkYjh4hdTAMoCs35Jb-rtcaQUuriEKsnXgWYVqi8LAW_Dw_5OTMC4reUtOLQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Chatroom/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Chatroom",
+						"logout"
+					]
+				},
+				"description": "Add the token received from the login request as the Bearer Token Authorization header."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
